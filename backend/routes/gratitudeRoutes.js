@@ -23,6 +23,6 @@ router.post('/', createGratitude);
 router.delete('/:id', deleteGratitude);
 
 // updates a single gratitude item
-router.patch(':id', updateGratitude);
+router.patch('/:id', updateGratitude);
 
 module.exports = router;
