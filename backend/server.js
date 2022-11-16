@@ -1,5 +1,6 @@
 require('dotenv').config();
 const express = require('express');
+const gratitudeRoutes = require('./routes/gratitudeRoutes');
 const mongoose = require('mongoose');
 
 // express app
@@ -11,9 +12,7 @@ app.use((req, res, next) => {
   next();
 });
 // routes
-app.get('/', (req, res) => {
-  res.json({ mssg: 'Welcome to the app' });
-});
+app.use('/api/gratitudes', gratitudeRoutes);
 
 // listening for requests
 app.listen(process.env.PORT, () => {
