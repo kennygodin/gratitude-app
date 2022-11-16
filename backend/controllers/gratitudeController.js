@@ -1,3 +1,5 @@
+const Gratitude = require('../models/gratitudeModel');
+
 // get all the gratitude items listed out
 const getGratitudes = (req, res) => {
   res.json({ mssg: 'Get all gratitude items' });
@@ -9,8 +11,15 @@ const getGratitude = (req, res) => {
 };
 
 // Create a new gratitude item
-const createGratitude = (req, res) => {
-  res.json({ mssg: 'Add new gratitude item' });
+const createGratitude = async (req, res) => {
+  const content = req.body;
+
+  try {
+    const gratitude = await Gratitude.create(content);
+    res.status(200).json(gratitude);
+  } catch (error) {
+    res.json({ error: error.message });
+  }
 };
 
 // delete a gratitude item
