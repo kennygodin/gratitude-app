@@ -16,7 +16,15 @@ app.use(express.json());
 // routes
 app.use('/api/gratitudes', gratitudeRoutes);
 
-// listening for requests
-app.listen(process.env.PORT, () => {
-  console.log('App listening on port', process.env.PORT);
-});
+mongoose
+  .connect(process.env.MONGO_URI)
+  .then(() => {
+    // listening for requests
+    app.listen(process.env.PORT, () => {
+      console.log(
+        'Connected Server to DB & listening on port',
+        process.env.PORT
+      );
+    });
+  })
+  .catch((error) => console.log(error));
