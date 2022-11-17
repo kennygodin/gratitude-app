@@ -32,6 +32,9 @@ const getGratitude = async (req, res) => {
 const createGratitude = async (req, res) => {
   const { content } = req.body;
 
+  if (!content) {
+    res.status(404).json({ error: 'Gratitude item cannot be empty' });
+  }
   try {
     const gratitude = await Gratitude.create({ content });
     res.status(200).json(gratitude);
