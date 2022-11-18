@@ -9,7 +9,11 @@ const Navbar = () => {
           <img src={logo} alt="gratitude-journal-logo" />
         </Link>
       </div>
-
+      <Link to="#" className="toggle-btn">
+        <span className="bar"></span>
+        <span className="bar"></span>
+        <span className="bar"></span>
+      </Link>
       <div>
         <ul>
           <li>

@@ -48,6 +48,34 @@ ul li {
 .navbar li a:hover {
   background-color: var(--dark);
 }
+
+.toggle-btn {
+  position: absolute;
+  top: 0 rem;
+  right: 9rem;
+  display: none;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 30px;
+  height: 21px;
+}
+.toggle-btn .bar {
+  height: 3px;
+  width: 100%;
+  background-color: var(--lighter);
+  border-radius: 10px;
+}
+@media (max-width: 790px) {
+  .toggle-btn {
+    display: flex;
+  }
+  .navbar ul {
+    display: none;
+  }
+  .navbar {
+    padding: 16px 100px;
+  }
+}
 /* Home page */
 
 .container {
