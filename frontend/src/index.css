@@ -23,15 +23,18 @@ body {
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
-  padding: 5px 100px;
+  padding: 0 100px;
 }
 .navbar a {
   color: #fff;
   text-decoration: none;
+  padding: 16px;
 }
+
 .navbar a img {
-  width: 250px;
+  width: 200px;
 }
+
 .navbar ul {
   display: flex;
   flex-direction: row;
@@ -42,7 +45,9 @@ ul li {
   font-size: 20px;
   font-weight: bold;
 }
-
+.navbar li a:hover {
+  background-color: var(--dark);
+}
 /* Home page */
 
 .container {
