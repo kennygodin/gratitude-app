@@ -1,5 +1,20 @@
+import { useEffect, useState } from 'react';
 import { FaTrash, FaPlus } from 'react-icons/fa';
 const Home = () => {
+  const [gratitudes, setGratitude] = useState(null);
+
+  useEffect(() => {
+    const fetchGratitudes = async () => {
+      const response = await fetch('/api/gratitudes');
+      const json = await response.json();
+
+      if (response.ok) {
+        setGratitude(json);
+      }
+    };
+
+    fetchGratitudes();
+  }, []);
   return (
     <div className="home">
       <div className="container">
@@ -10,6 +25,15 @@ const Home = () => {
           </button>
         </form>
         <ul>
+          {gratitudes &&
+            gratitudes.map((gratitudeItem) => (
+              <li key={gratitudeItem._id}>
+                {gratitudeItem.content}
+                <div className="del">
+                  <FaTrash />
+                </div>
+              </li>
+            ))}
           <li>
             I am grateful for health
             <div className="del">
