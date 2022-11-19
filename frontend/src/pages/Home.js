@@ -1,5 +1,9 @@
 import { useEffect, useState } from 'react';
-import { FaTrash, FaPlus } from 'react-icons/fa';
+import { FaPlus } from 'react-icons/fa';
+
+// components
+import GratitudeDetails from '../components/GratitudeDetails';
+
 const Home = () => {
   const [gratitudes, setGratitude] = useState(null);
 
@@ -27,43 +31,11 @@ const Home = () => {
         <ul>
           {gratitudes &&
             gratitudes.map((gratitudeItem) => (
-              <li key={gratitudeItem._id}>
-                {gratitudeItem.content}
-                <div className="del">
-                  <FaTrash />
-                </div>
-              </li>
+              <GratitudeDetails
+                key={gratitudeItem._id}
+                gratitudeItem={gratitudeItem}
+              />
             ))}
-          <li>
-            I am grateful for health
-            <div className="del">
-              <FaTrash />
-            </div>
-          </li>
-          <li>
-            I am grateful for family
-            <div className="del">
-              <FaTrash />
-            </div>
-          </li>
-          <li>
-            I am grateful for friends
-            <div className="del">
-              <FaTrash />
-            </div>
-          </li>
-          <li>
-            I am gratful for provision
-            <div className="del">
-              <FaTrash />
-            </div>
-          </li>
-          <li>
-            I am grateful for mentors
-            <div className="del">
-              <FaTrash />
-            </div>
-          </li>
         </ul>
 
         <div className="footer">
