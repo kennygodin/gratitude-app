@@ -1,26 +1,44 @@
+import { FaTrash, FaPlus } from 'react-icons/fa';
 const Home = () => {
   return (
     <div className="home">
       <div className="container">
         <form>
           <input type="text" placeholder="What are you grateful for today?" />
-          <button>Add</button>
+          <button>
+            <FaPlus />
+          </button>
         </form>
         <ul>
           <li>
-            I am grateful for health<div className="del">DELETE</div>
+            I am grateful for health
+            <div className="del">
+              <FaTrash />
+            </div>
           </li>
           <li>
-            I am grateful for family<div className="del">DELETE</div>
+            I am grateful for family
+            <div className="del">
+              <FaTrash />
+            </div>
           </li>
           <li>
-            I am grateful for friends<div className="del">DELETE</div>
+            I am grateful for friends
+            <div className="del">
+              <FaTrash />
+            </div>
           </li>
           <li>
-            I am gratful for provision<div className="del">DELETE</div>
+            I am gratful for provision
+            <div className="del">
+              <FaTrash />
+            </div>
           </li>
           <li>
-            I am grateful for mentors<div className="del">DELETE</div>
+            I am grateful for mentors
+            <div className="del">
+              <FaTrash />
+            </div>
           </li>
         </ul>
 
