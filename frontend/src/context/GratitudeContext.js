@@ -2,6 +2,6 @@ import { createContext } from 'react';
 
 export const GratitudesContext = createContext();
 
-export const GratitudesContextProvider = () => {
-  return <GratitudesContext.Provider></GratitudesContext.Provider>;
+export const GratitudesContextProvider = ({ children }) => {
+  return <GratitudesContext.Provider>{children}</GratitudesContext.Provider>;
 };
