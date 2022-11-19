@@ -39,7 +39,7 @@ const GratitudeForm = () => {
       <button>
         <FaPlus />
       </button>
-      {/* {error && <div>{error}</div>} */}
+      {error && <div>{error}</div>}
     </form>
   );
 };
