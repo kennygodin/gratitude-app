@@ -1,8 +1,8 @@
 import { useEffect, useState } from 'react';
-import { FaPlus } from 'react-icons/fa';
 
 // components
 import GratitudeDetails from '../components/GratitudeDetails';
+import GratitudeForm from '../components/GratitudeForm';
 
 const Home = () => {
   const [gratitudes, setGratitude] = useState(null);
@@ -22,12 +22,8 @@ const Home = () => {
   return (
     <div className="home">
       <div className="container">
-        <form>
-          <input type="text" placeholder="What are you grateful for today?" />
-          <button>
-            <FaPlus />
-          </button>
-        </form>
+        <GratitudeForm />
+
         <ul>
           {gratitudes &&
             gratitudes.map((gratitudeItem) => (
