@@ -12,6 +12,12 @@ export const gratitudeReducer = (state, action) => {
       return {
         gratitudes: [action.payload, ...state.gratitudes],
       };
+    case 'DELETE_WORKOUT':
+      return {
+        gratitudes: state.gratitudes.filter(
+          (g) => g._id !== action.payload._id
+        ),
+      };
     default:
       return state;
   }
