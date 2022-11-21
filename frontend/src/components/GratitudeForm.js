@@ -1,7 +1,9 @@
 import { useState } from 'react';
 import { FaPlus } from 'react-icons/fa';
+import { useGratitudeContext } from '../hooks/useGratitudesContext';
 
 const GratitudeForm = () => {
+  const { dispatch } = useGratitudeContext();
   const [content, setContent] = useState('');
   const [error, setError] = useState(null);
 
@@ -25,6 +27,7 @@ const GratitudeForm = () => {
       setError(null);
       setContent('');
       console.log('New gratitude item added', json);
+      dispatch({ type: 'CREATE_GRATITUDE', payload: json });
     }
   };
 

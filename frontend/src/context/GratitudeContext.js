@@ -21,5 +21,9 @@ export const GratitudesContextProvider = ({ children }) => {
     gratitudes: null,
   });
 
-  return <GratitudesContext.Provider>{children}</GratitudesContext.Provider>;
+  return (
+    <GratitudesContext.Provider value={{ ...state, dispatch }}>
+      {children}
+    </GratitudesContext.Provider>
+  );
 };

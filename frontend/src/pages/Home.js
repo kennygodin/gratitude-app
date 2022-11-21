@@ -1,11 +1,12 @@
-import { useEffect, useState } from 'react';
+import { useEffect } from 'react';
+import { useGratitudeContext } from '../hooks/useGratitudesContext';
 
 // components
 import GratitudeDetails from '../components/GratitudeDetails';
 import GratitudeForm from '../components/GratitudeForm';
 
 const Home = () => {
-  const [gratitudes, setGratitude] = useState(null);
+  const { gratitudes, dispatch } = useGratitudeContext();
 
   useEffect(() => {
     const fetchGratitudes = async () => {
@@ -13,12 +14,12 @@ const Home = () => {
       const json = await response.json();
 
       if (response.ok) {
-        setGratitude(json);
+        dispatch({ type: 'SET_GRATITUDES', payload: json });
       }
     };
 
     fetchGratitudes();
-  }, []);
+  }, [dispatch]);
   return (
     <div className="home">
       <div className="container">
