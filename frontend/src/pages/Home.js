@@ -4,6 +4,7 @@ import { useGratitudeContext } from '../hooks/useGratitudesContext';
 // components
 import GratitudeDetails from '../components/GratitudeDetails';
 import GratitudeForm from '../components/GratitudeForm';
+import GratitudesFooter from '../components/GratitudesFooter';
 
 const Home = () => {
   const { gratitudes, dispatch } = useGratitudeContext();
@@ -35,12 +36,7 @@ const Home = () => {
             ))}
         </ul>
 
-        <div className="footer">
-          <p>
-            <strong>I'm grateful for 5 things today!</strong>
-          </p>
-          <button>DELETE ALL</button>
-        </div>
+        <GratitudesFooter />
       </div>
     </div>
   );

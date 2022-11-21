@@ -6,6 +6,7 @@ const {
   getGratitudes,
   getGratitude,
   createGratitude,
+  deleteGratitudes,
   deleteGratitude,
   updateGratitude,
 } = require('../controllers/gratitudeController');
@@ -18,6 +19,9 @@ router.get('/:id', getGratitude);
 
 // add a new gratitude item
 router.post('/', createGratitude);
+
+// delete all single gratitude item
+router.delete('/', deleteGratitudes);
 
 // delete a single gratitude item
 router.delete('/:id', deleteGratitude);

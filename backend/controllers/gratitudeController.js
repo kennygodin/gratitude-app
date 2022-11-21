@@ -43,6 +43,15 @@ const createGratitude = async (req, res) => {
   }
 };
 
+// delete all gratitude items
+const deleteGratitudes = async (req, res) => {
+  try {
+    const gratitude = await Gratitude.deleteMany({});
+    res.status(200).json(gratitude);
+  } catch (error) {
+    res.json({ error: error.message });
+  }
+};
 // delete a gratitude item
 const deleteGratitude = async (req, res) => {
   const { id } = req.params;
@@ -81,6 +90,7 @@ module.exports = {
   getGratitudes,
   getGratitude,
   createGratitude,
+  deleteGratitudes,
   deleteGratitude,
   updateGratitude,
 };

@@ -175,7 +175,7 @@ li .del:hover {
   font-weight: 500;
   color: var(--darkest);
 }
-.footer button {
+.footer span {
   padding: 5px;
   vertical-align: middle;
   border-radius: 5px;
@@ -185,9 +185,9 @@ li .del:hover {
   cursor: pointer;
   transition: all 0.3s ease;
 }
-.footer button:hover {
+.footer span:hover {
   opacity: 0.8;
 }
-.footer button:active {
+.footer span:active {
   opacity: 0.6;
 }
