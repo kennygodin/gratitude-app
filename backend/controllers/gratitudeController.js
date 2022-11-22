@@ -5,6 +5,7 @@ const mongoose = require('mongoose');
 const getGratitudes = async (req, res) => {
   try {
     const gratitude = await Gratitude.find({}).sort({ createdAt: -1 });
+    // const value = await Gratitude.count();
     res.status(200).json(gratitude);
   } catch (error) {
     res.json({ error: error.message });

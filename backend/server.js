@@ -1,6 +1,7 @@
 require('dotenv').config();
 const express = require('express');
 const gratitudeRoutes = require('./routes/gratitudeRoutes');
+const userRoutes = require('./routes/userRoutes');
 const mongoose = require('mongoose');
 
 // express app
@@ -15,6 +16,7 @@ app.use(express.json());
 
 // routes
 app.use('/api/gratitudes', gratitudeRoutes);
+app.use('/api/user', userRoutes);
 
 mongoose
   .connect(process.env.MONGO_URI)
