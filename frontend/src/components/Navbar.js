@@ -20,7 +20,7 @@ const Navbar = () => {
       <div ref={navRef} className="nav">
         <ul>
           <li>
-            <Link to="/signin">Sign in</Link>
+            <Link to="/signup">Sign up</Link>
           </li>
           <li>
             <Link to="/login">Log in</Link>

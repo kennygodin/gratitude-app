@@ -98,7 +98,7 @@ body {
   border-radius: 8px;
   padding: 10px 30px;
 }
-form {
+.input-form {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
@@ -106,7 +106,7 @@ form {
   margin-top: 20px;
   box-shadow: 3px 3px 3px rgba(0, 0, 0, 0.15);
 }
-form input[type='text'] {
+.input-form input[type='text'] {
   flex: 1;
   border-top-left-radius: 4px;
   border-bottom-left-radius: 4px;
@@ -114,11 +114,11 @@ form input[type='text'] {
   padding: 10px;
   font-size: 16px;
 }
-form input[type='text']:focus {
+.input-form input[type='text']:focus {
   outline: none;
   border: none;
 }
-form button {
+.input-form button {
   border-top-right-radius: 4px;
   border-bottom-right-radius: 4px;
   border: none;
@@ -130,7 +130,7 @@ form button {
   cursor: pointer;
   transition: all 0.3s ease;
 }
-form button:hover {
+.input-form button:hover {
   color: var(--dark);
   background-color: var(--lighter);
 }
@@ -190,4 +190,51 @@ li .del:hover {
 }
 .footer span:active {
   opacity: 0.6;
+}
+
+/* login signup form */
+.login,
+.signup {
+  background-color: var(--darker);
+  border-radius: 4px;
+  max-width: 500px;
+  padding: 20px;
+  margin: 120px auto;
+  text-align: center;
+}
+.login h3,
+.signup h3 {
+  font-size: 28px;
+  color: var(--lighter);
+}
+
+.login input,
+.signup input {
+  display: inline-block;
+  width: 350px;
+  padding: 10px;
+  margin-top: 20px;
+  border-radius: 4px;
+  border: none;
+}
+.login input::placeholder,
+.signup input::placeholder {
+  font-size: 16px;
+}
+.login button,
+.signup button {
+  margin: 20px 0;
+  padding: 6px 50px;
+  font-size: 18px;
+  font-weight: bold;
+  border-radius: 6px;
+  border: none;
+  background-color: var(--darkest);
+  color: var(--lighter);
+  cursor: pointer;
+}
+.login button:hover,
+.signup button:hover {
+  background-color: var(--lighter);
+  color: var(--darkest);
 }

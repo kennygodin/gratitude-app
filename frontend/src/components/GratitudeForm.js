@@ -32,7 +32,7 @@ const GratitudeForm = () => {
   };
 
   return (
-    <form onSubmit={handleSubmit}>
+    <form className="input-form" onSubmit={handleSubmit}>
       <input
         type="text"
         value={content}
