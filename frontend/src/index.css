@@ -240,7 +240,6 @@ li .del:hover {
 }
 
 .error {
-  /* width: 300px; */
   display: inline-block;
   background-color: var(--delete);
   color: var(--lighter);
