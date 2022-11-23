@@ -238,3 +238,13 @@ li .del:hover {
   background-color: var(--lighter);
   color: var(--darkest);
 }
+
+.error {
+  /* width: 300px; */
+  display: inline-block;
+  background-color: var(--delete);
+  color: var(--lighter);
+  padding: 3px 25px;
+  font-size: 16px;
+  font-style: italic;
+}
