@@ -2,11 +2,15 @@ import { Link } from 'react-router-dom';
 import logo from '../assets/logo.png';
 import { FaBars, FaTimes } from 'react-icons/fa';
 import { useRef } from 'react';
+
 import { useLogout } from '../hooks/useLogout';
+import { useUserContext } from '../hooks/useUserContext';
 
 const Navbar = () => {
   const navRef = useRef();
+
   const { logout } = useLogout();
+  const { user } = useUserContext();
 
   const showNavBar = () => {
     navRef.current.classList.toggle('responsive_nav');
@@ -27,15 +31,28 @@ const Navbar = () => {
 
       <div ref={navRef} className="nav">
         <ul>
-          <li>
-            <Link to="/signup">Sign up</Link>
-          </li>
-          <li>
-            <Link to="/login">Log in</Link>
-          </li>
-          <li>
-            <button onClick={handleClick}>Log out</button>
-          </li>
+          {!user && (
+            <div>
+              <li>
+                <Link to="/signup">Sign up</Link>
+              </li>
+              <li>
+                <Link to="/login">Log in</Link>
+              </li>
+            </div>
+          )}
+
+          {user && (
+            <div>
+              <li>
+                <button onClick={handleClick}>Log out</button>
+              </li>
+              <li>
+                <span>{user.email}</span>
+              </li>
+            </div>
+          )}
+
           <button className="nav-btn nav-close-btn" onClick={showNavBar}>
             <FaTimes />
           </button>
