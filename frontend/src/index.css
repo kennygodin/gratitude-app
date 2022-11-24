@@ -54,6 +54,10 @@ body {
   background: transparent;
   border: none;
   color: var(--lighter);
+  cursor: pointer;
+}
+.nav li span {
+  color: var(--dark);
 }
 /* {
   padding: 5px;

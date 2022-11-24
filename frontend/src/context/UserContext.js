@@ -1,4 +1,4 @@
-import { createContext, useReducer } from 'react';
+import { createContext, useEffect, useReducer } from 'react';
 
 export const UserContext = createContext();
 
@@ -16,6 +16,17 @@ export const UserContextProvider = ({ children }) => {
   const [state, dispatch] = useReducer(userReducer, {
     user: null,
   });
+
+  // when there's a refresh, the useContext shows that the user is null,
+  // even tho we're logged in in local storage. this is to rectify that.
+
+  useEffect(() => {
+    const user = JSON.parse(localStorage.getItem('user'));
+
+    if (user) {
+      dispatch({ type: 'USER_LOGIN', payload: user });
+    }
+  }, []);
 
   console.log('UserContext state', state);
 
