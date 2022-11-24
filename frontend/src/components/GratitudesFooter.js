@@ -1,7 +1,8 @@
 import { useGratitudeContext } from '../hooks/useGratitudesContext';
 
 const GratitudesFooter = () => {
-  const { dispatch } = useGratitudeContext();
+  const { gratitudes, dispatch } = useGratitudeContext();
+
   const handleDeleteAll = async () => {
     const response = await fetch('/api/gratitudes', {
       method: 'DELETE',
@@ -16,9 +17,16 @@ const GratitudesFooter = () => {
   };
   return (
     <div className="footer">
-      <p>
-        <strong>I'm grateful for 5 things today!</strong>
-      </p>
+      {gratitudes && (
+        <div>
+          <p>
+            <strong>
+              You are grateful for {gratitudes.length} thing(s) today!
+            </strong>
+          </p>
+        </div>
+      )}
+
       <span onClick={handleDeleteAll}>DELETE ALL</span>
     </div>
   );
