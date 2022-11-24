@@ -16,7 +16,7 @@ const loginUser = async (req, res) => {
   } catch (error) {
     res.status(400).json({ error: error.message });
   }
-  res.json({ mssg: 'login user' });
+  // res.json({ mssg: 'login user' });
 };
 
 // signup user
