@@ -45,10 +45,10 @@ const Navbar = () => {
           {user && (
             <div>
               <li>
-                <button onClick={handleClick}>Log out</button>
+                <span>{user.email}</span>
               </li>
               <li>
-                <span>{user.email}</span>
+                <button onClick={handleClick}>Log out</button>
               </li>
             </div>
           )}
