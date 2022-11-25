@@ -1,11 +1,21 @@
 import { FaTrash } from 'react-icons/fa';
 import { useGratitudeContext } from '../hooks/useGratitudesContext';
+import { useUserContext } from '../hooks/useUserContext';
 
 const GratitudeDetails = ({ gratitudeItem }) => {
   const { dispatch } = useGratitudeContext();
+  const { user } = useUserContext();
+
   const handleClick = async () => {
+    // if there's no user, we dont even try to make request.
+    if (!user) {
+      return;
+    }
     const response = await fetch('/api/gratitudes/' + gratitudeItem._id, {
       method: 'DELETE',
+      headers: {
+        Authorization: `Bearer ${user.token}`,
+      },
     });
     const json = await response.json();
 

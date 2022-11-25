@@ -5,13 +5,19 @@ import { useGratitudeContext } from '../hooks/useGratitudesContext';
 import GratitudeDetails from '../components/GratitudeDetails';
 import GratitudeForm from '../components/GratitudeForm';
 import GratitudesFooter from '../components/GratitudesFooter';
+import { useUserContext } from '../hooks/useUserContext';
 
 const Home = () => {
   const { gratitudes, dispatch } = useGratitudeContext();
+  const { user } = useUserContext();
 
   useEffect(() => {
     const fetchGratitudes = async () => {
-      const response = await fetch('/api/gratitudes');
+      const response = await fetch('/api/gratitudes', {
+        headers: {
+          Authorization: `Bearer ${user.token}`,
+        },
+      });
       const json = await response.json();
 
       if (response.ok) {
@@ -19,8 +25,11 @@ const Home = () => {
       }
     };
 
-    fetchGratitudes();
-  }, [dispatch]);
+    // fetch the gratitudes if there's a user
+    if (user) {
+      fetchGratitudes();
+    }
+  }, [dispatch, user]);
   return (
     <div className="home">
       <div className="container">

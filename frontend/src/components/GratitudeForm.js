@@ -1,21 +1,32 @@
 import { useState } from 'react';
 import { FaPlus } from 'react-icons/fa';
 import { useGratitudeContext } from '../hooks/useGratitudesContext';
+import { useUserContext } from '../hooks/useUserContext';
 
 const GratitudeForm = () => {
   const { dispatch } = useGratitudeContext();
   const [content, setContent] = useState('');
   const [error, setError] = useState(null);
 
+  const { user } = useUserContext();
+
   const handleSubmit = async (e) => {
     e.preventDefault();
+
+    if (!user) {
+      setError('You must be logged in');
+      return;
+    }
 
     const gratitude = { content };
 
     const response = await fetch('/api/gratitudes', {
       method: 'POST',
       body: JSON.stringify(gratitude),
-      headers: { 'Content-Type': 'application/json' },
+      headers: {
+        'Content-Type': 'application/json',
+        Authorization: `Bearer ${user.token}`,
+      },
     });
 
     const json = await response.json();

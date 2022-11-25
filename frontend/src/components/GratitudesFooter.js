@@ -1,11 +1,21 @@
 import { useGratitudeContext } from '../hooks/useGratitudesContext';
+import { useUserContext } from '../hooks/useUserContext';
 
 const GratitudesFooter = () => {
   const { gratitudes, dispatch } = useGratitudeContext();
+  const { user } = useUserContext();
 
   const handleDeleteAll = async () => {
+    // if there's no user, we dont even try to make request.
+    if (!user) {
+      return;
+    }
+
     const response = await fetch('/api/gratitudes', {
       method: 'DELETE',
+      headers: {
+        Authorization: `Bearer ${user.token}`,
+      },
     });
 
     const json = await response.json();
