@@ -1,7 +1,5 @@
 const express = require('express');
 
-const router = express.Router();
-
 const {
   getGratitudes,
   getGratitude,
@@ -10,6 +8,13 @@ const {
   deleteGratitude,
   updateGratitude,
 } = require('../controllers/gratitudeController');
+
+const requireUser = require('../middleware/requireUser');
+
+const router = express.Router();
+
+// require authentication for all user for all workout routes.
+router.use(requireUser);
 
 // get all the gratitude items listed out
 router.get('/', getGratitudes);
