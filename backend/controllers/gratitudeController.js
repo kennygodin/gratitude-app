@@ -4,7 +4,8 @@ const mongoose = require('mongoose');
 // get all the gratitude items listed out
 const getGratitudes = async (req, res) => {
   try {
-    const gratitude = await Gratitude.find({}).sort({ createdAt: -1 });
+    const user_id = req.user._id;
+    const gratitude = await Gratitude.find({ user_id }).sort({ createdAt: -1 });
 
     res.status(200).json(gratitude);
   } catch (error) {
@@ -37,7 +38,10 @@ const createGratitude = async (req, res) => {
     res.status(404).json({ error: 'Gratitude item cannot be empty' });
   }
   try {
-    const gratitude = await Gratitude.create({ content });
+    // the user is present only when we're authenticated.
+    const user_id = req.user._id;
+
+    const gratitude = await Gratitude.create({ content, user_id });
     res.status(200).json(gratitude);
   } catch (error) {
     res.json({ error: error.message });
